@@ -17,7 +17,7 @@ function Page(props) {
 
 Page.getInitialProps = async () => {
   console.log('Count getInitialProps');
-  await window.g_app._store.dispatch({
+  await require('@tmp/dva').getApp()._store.dispatch({
     type: 'count/init',
   });
 };

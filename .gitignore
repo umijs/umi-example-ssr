@@ -1,4 +1,4 @@
 /yarn.lock
 /dist/
 /node_modules/
-/pages/.umi/
+/src/pages/.umi/
