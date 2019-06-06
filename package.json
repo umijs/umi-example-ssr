@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "umi dev",
+    "server": "node server"
+  },
+  "dependencies": {
+    "koa": "^2.7.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "regenerator-runtime": "^0.13.2"
+  }
+}
