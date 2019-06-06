@@ -1,8 +1,4 @@
 {
-  "scripts": {
-    "start": "umi dev",
-    "server": "node server"
-  },
   "dependencies": {
     "koa": "^2.7.0",
     "react": "^16.8.6",

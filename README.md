@@ -2,8 +2,6 @@
 
 ssr example for umi, including dva.
 
-> 依赖 [umijs/umi!2543][1]。
-
 ## Usage
 
 先安装依赖，
@@ -12,7 +10,9 @@ ssr example for umi, including dva.
 $ yarn
 ```
 
-然后分别运行 `yarn start` 和 `yarn server`。
+> 依赖 [umijs/umi!2543][1]，要验证的需先 link 过来跑。
+
+然后分别运行 `umi dev` 和 `node server`。
 
 在浏览器打开，
 
