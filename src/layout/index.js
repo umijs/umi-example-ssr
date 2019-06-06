@@ -1,13 +1,14 @@
 import { Link } from 'umi';
 import styles from './index.css';
 
-export default function(props) {
+function Page(props) {
   return (
     <div className={styles.normal}>
       <h1>Global Layout</h1>
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/users">Users</Link></li>
+        <li><Link to="/count">Count</Link></li>
       </ul>
       {
         props.children
@@ -15,3 +16,5 @@ export default function(props) {
     </div>
   );
 }
+
+export default Page;

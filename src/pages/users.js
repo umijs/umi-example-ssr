@@ -6,7 +6,7 @@ function Page(props) {
       <h1>Page users</h1>
       <h2>users</h2>
       <ul>
-        { (props.data.list || []).map(user => <li key={user}>{user}</li>) }
+        { (props.list || []).map(user => <li key={user}>{user}</li>) }
       </ul>
     </div>
   );
@@ -15,9 +15,7 @@ function Page(props) {
 Page.getInitialProps = async () => {
   console.log('Users getInitialProps');
   return Promise.resolve({
-    data: {
-      list: ['foo', 'bar'],
-    },
+    list: ['foo', 'bar'],
   });
 };
 
