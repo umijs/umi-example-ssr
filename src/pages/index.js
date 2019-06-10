@@ -1,3 +1,6 @@
+/**
+ * title: Home
+ */
 import styles from './index.css';
 
 function Page(props) {

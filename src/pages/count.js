@@ -1,3 +1,6 @@
+/**
+ * title: Count
+ */
 import { connect } from 'dva';
 import styles from './count.css';
 
