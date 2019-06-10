@@ -1,7 +1,7 @@
 require("regenerator-runtime/runtime");
 const Koa = require('koa');
 const { renderToNodeStream } = require('react-dom/server');
-
+const isDev = process.env.NODE_ENV === 'development';
 global.window = {};
 
 const app = new Koa();
@@ -10,7 +10,9 @@ app.use(async (ctx, next) => {
   if (ctx.req.url === '/' || ctx.req.url === '/users' || ctx.req.url === '/count') {
     ctx.type = 'text/html';
     ctx.status = 200;
-    delete require.cache[require.resolve('./dist/umi.server')];
+    if (isDev) {
+      delete require.cache[require.resolve('./dist/umi.server')];
+    }
     const serverStream = require('./dist/umi.server');
     const serverRes = await serverStream.default(ctx);
     const stream = renderToNodeStream(serverRes);
