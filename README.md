@@ -10,7 +10,7 @@ ssr example for umi, including dva.
 $ yarn
 ```
 
-> 依赖 [umijs/umi!2543][1]，要验证的需先 link 过来跑。
+> 依赖 [umijs/umi!2543][1]，要验证的需先 link umi 和 umi-plugin-react 过来跑。
 
 然后分别运行 `umi dev` 和 `node server`。
 
