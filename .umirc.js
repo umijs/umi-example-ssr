@@ -1,8 +1,9 @@
 
 export default {
   ssr: true,
+  manifest: {},
   disableGlobalVariables: true,
-  publicPath: 'http://127.0.0.1:8000/',
+  publicPath: '/static/',
   plugins: [
     ['umi-plugin-react', {
       dva: true,

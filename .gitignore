@@ -2,3 +2,4 @@
 /dist/
 /node_modules/
 /src/pages/.umi/
+/src/pages/.umi-production/
