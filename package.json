@@ -1,7 +1,8 @@
 {
   "scripts": {
     "build": "umi build",
-    "start": "npm run build && node server.js"
+    "start": "npm run build && node server.js",
+    "debug": "RM_TMPDIR=none COMPRESS=none UMI_ENV=prod umi build umi build && node server.js"
   },
   "dependencies": {
     "koa": "^2.7.0",

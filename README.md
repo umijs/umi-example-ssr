@@ -16,6 +16,8 @@ $ yarn
 
 * [http://127.0.0.1:7001][2]
 
+调试可使用 `yarn debug`，不会对代码进行压缩。
+
 ## Screenshot
 
 ![image](https://user-images.githubusercontent.com/13595509/59816117-710db780-934d-11e9-9521-6e01e63f252b.png)
