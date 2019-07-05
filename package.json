@@ -12,7 +12,7 @@
     "regenerator-runtime": "^0.13.2"
   },
   "devDependencies": {
-    "umi": "^2.8.0",
+    "umi": "^2.8.9",
     "umi-plugin-react": "^1.9.0"
   }
 }
