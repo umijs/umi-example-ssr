@@ -1,6 +1,6 @@
 # umi-example-ssr
 
-ssr example for umi, including dva.
+ssr example for umi, including dva. [prerender preview](https://umijs.github.io/umi-example-ssr)
 
 ## Usage
 

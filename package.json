@@ -2,7 +2,8 @@
   "scripts": {
     "build": "umi build",
     "start": "npm run build && node server.js",
-    "debug": "RM_TMPDIR=none COMPRESS=none UMI_ENV=prod umi build && node server.js"
+    "debug": "RM_TMPDIR=none COMPRESS=none UMI_ENV=prod umi build && node server.js",
+    "gh-pages": "npm run build && umi gh-pages"
   },
   "dependencies": {
     "koa": "^2.7.0",
@@ -12,7 +13,9 @@
     "regenerator-runtime": "^0.13.2"
   },
   "devDependencies": {
+    "@umijs/plugin-prerender": "^1.0.6",
     "umi": "^2.8.9",
+    "umi-plugin-gh-pages": "^0.1.0",
     "umi-plugin-react": "^1.9.0"
   }
 }
