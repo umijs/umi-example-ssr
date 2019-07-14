@@ -18,6 +18,8 @@ $ yarn
 
 调试可使用 `yarn debug`，不会对代码进行压缩。
 
+预渲染发布到 `gh-pages`，使用 `yarn gh-pages`
+
 ## Screenshot
 
 ![image](https://user-images.githubusercontent.com/13595509/59816117-710db780-934d-11e9-9521-6e01e63f252b.png)
