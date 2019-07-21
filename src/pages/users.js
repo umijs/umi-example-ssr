@@ -16,7 +16,7 @@ function Page(props) {
 }
 
 Page.getInitialProps = async () => {
-  console.log('Users getInitialProps');
+  // console.log('Users getInitialProps');
   return Promise.resolve({
     list: ['foo', 'bar'],
   });

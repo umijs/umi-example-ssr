@@ -13,7 +13,7 @@ function Page(props) {
 }
 
 Page.getInitialProps = async ({ store, route, isServer }) => {
-  console.log('Home getInitialProps', store, route, isServer);
+  // console.log('Home getInitialProps', store, route, isServer);
   return Promise.resolve({
     data: {
       ssr: 'http://127.0.0.1:7001',

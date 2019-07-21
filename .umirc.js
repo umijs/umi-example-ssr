@@ -1,12 +1,11 @@
 
-const isProd = process.env.NODE_ENV === 'production';
+const isPage = process.env.GITHUB_PAGE === 'true';
 
 export default {
   ssr: true,
-  manifest: {},
   disableGlobalVariables: true,
-  publicPath: isProd ? '/umi-example-ssr/' : '/static/',
-  base: isProd ? '/umi-example-ssr/' : '/',
+  publicPath: isPage ? '/umi-example-ssr/' : '/static/',
+  base: isPage ? '/umi-example-ssr/' : '/',
   plugins: [
     ['umi-plugin-react', {
       dva: true,
@@ -15,6 +14,6 @@ export default {
       },
     }],
     ['umi-plugin-gh-pages'],
-    ...(isProd ? ['@umijs/plugin-prerender'] : []),
+    ...(isPage ? ['@umijs/plugin-prerender'] : []),
   ],
 };

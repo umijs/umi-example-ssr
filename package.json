@@ -2,10 +2,11 @@
   "scripts": {
     "build": "umi build",
     "start": "npm run build && node server.js",
-    "debug": "RM_TMPDIR=none COMPRESS=none UMI_ENV=prod umi build && node server.js",
-    "gh-pages": "npm run build && umi gh-pages"
+    "debug": "cross-env RM_TMPDIR=none COMPRESS=none UMI_ENV=prod umi build && node server.js",
+    "gh-pages": "npm run build && cross-env GITHUB_PAGE=true umi gh-pages"
   },
   "dependencies": {
+    "cross-env": "^5.2.0",
     "koa": "^2.7.0",
     "koa-static-router": "^1.3.0",
     "react": "^16.8.6",
