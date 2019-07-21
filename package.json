@@ -3,7 +3,7 @@
     "build": "umi build",
     "start": "npm run build && node server.js",
     "debug": "cross-env RM_TMPDIR=none COMPRESS=none UMI_ENV=prod umi build && node server.js",
-    "gh-pages": "npm run build && cross-env GITHUB_PAGE=true umi gh-pages"
+    "gh-pages": "cross-env GITHUB_PAGE=true npm run build && umi gh-pages"
   },
   "dependencies": {
     "cross-env": "^5.2.0",
