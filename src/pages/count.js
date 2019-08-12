@@ -29,6 +29,9 @@ function Page(props) {
 Page.getInitialProps = async ({ store, route, isServer }) => {
   // console.log('Count getInitialProps', store, route, isServer);
   await store.dispatch({
+    type: 'count/reset',
+  });
+  await store.dispatch({
     type: 'count/init',
   });
 };

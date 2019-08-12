@@ -5,6 +5,13 @@
     "debug": "cross-env RM_TMPDIR=none COMPRESS=none UMI_ENV=prod umi build && node server.js",
     "gh-pages": "cross-env GITHUB_PAGE=true npm run build && umi gh-pages"
   },
+  "engines": {
+    "node": "10.x"
+  },
+  "optionalDependencies": {
+    "now": "^13.1.3",
+    "@now/node": "^0.12.5"
+  },
   "dependencies": {
     "cross-env": "^5.2.0",
     "koa": "^2.7.0",

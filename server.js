@@ -7,8 +7,8 @@ const isDev = process.env.NODE_ENV === 'development';
 
 const app = new Koa();
 app.use(serve({
-  dir: './dist',
-  router: '/static/',
+  dir: './public',
+  router: '/public/',
 }));
 app.use(async (ctx, next) => {
   // 符合要求的路由才进行服务端渲染，否则走静态文件逻辑
@@ -19,13 +19,15 @@ app.use(async (ctx, next) => {
     global.window = {};
     global.self = global.window;
     if (isDev) {
-      delete require.cache[require.resolve('./dist/umi.server')];
+      delete require.cache[require.resolve('./public/umi.server')];
     }
-    const serverRender = require('./dist/umi.server');
+    const serverRender = require('./public/umi.server');
     const { ReactDOMServer } = serverRender;
 
     const { htmlElement } = await serverRender.default(ctx);
     const stream = ReactDOMServer.renderToNodeStream(htmlElement);
+    global.window = {};
+    global.self = global.window;
     ctx.body = stream;
   } else {
     await next();

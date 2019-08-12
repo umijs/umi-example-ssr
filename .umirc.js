@@ -5,7 +5,8 @@ export default {
   ssr: true,
   hash: isPage,
   disableGlobalVariables: true,
-  publicPath: isPage ? '/umi-example-ssr/' : '/static/',
+  outputPath: './public',
+  publicPath: isPage ? '/umi-example-ssr/' : '/public/',
   base: isPage ? '/umi-example-ssr/' : '/',
   plugins: [
     ['umi-plugin-react', {

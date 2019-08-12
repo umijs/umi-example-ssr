@@ -1,0 +1,30 @@
+{
+  "name": "umi-ssr-lambda",
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": {
+        "distDif": "public"
+      }
+    },
+    {
+      "src": "/public/*",
+      "use": "@now/static"
+    },
+    {
+      "src": "lambda/ssr.js",
+      "use": "@now/node",
+      "config": {
+        "includeFiles": [
+          "public/**/*"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    { "src": "/public/(.*)", "dest": "public/$1" },
+    { "src": "/(.*)", "dest": "/lambda/ssr.js" }
+  ]
+}
