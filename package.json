@@ -4,7 +4,7 @@
     "start": "npm run build && node server.js",
     "debug": "cross-env RM_TMPDIR=none COMPRESS=none UMI_ENV=prod umi build && node server.js",
     "prerender": "cross-env GITHUB_PAGE=true npm run build",
-    "gh-pages": "cross-env GITHUB_PAGE=true npm run build && git init && umi gh-pages"
+    "gh-pages": "cross-env GITHUB_PAGE=true npm run build && umi gh-pages"
   },
   "engines": {
     "node": "10.x"
