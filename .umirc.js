@@ -13,8 +13,8 @@ const plugins = [
   }],
   ['umi-plugin-gh-pages', {
     user: {
-      name: 'github-actions-bot',
-      email: 'support+actions@github.com'
+      name: 'ycjcl868',
+      email: '45808948@qq.com'
     },
   }],
   ...(isPage ? [['@umijs/plugin-prerender', {
