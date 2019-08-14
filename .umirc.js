@@ -1,4 +1,4 @@
-
+const DocumentTitle = require('react-document-title');
 const isPage = process.env.GITHUB_PAGE === 'true';
 
 export default {
@@ -19,6 +19,16 @@ export default {
       },
     }],
     ['umi-plugin-gh-pages'],
-    ...(isPage ? ['@umijs/plugin-prerender'] : []),
+    ...(isPage ? ['@umijs/plugin-prerender', {
+      postProcessHtml: ($, path) => {
+        const title = DocumentTitle.rewind();
+
+        if (title) {
+          $('title').html() ? $('title').text(title) : $('html head').prepend(`<title>${title}</title>`)
+        }
+
+        return $;
+      }
+    }] : []),
   ],
 };
