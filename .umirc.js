@@ -11,7 +11,12 @@ const plugins = [
       defaultTitle: 'my app',
     },
   }],
-  ['umi-plugin-gh-pages'],
+  ['umi-plugin-gh-pages', {
+    user: {
+      name: 'github-actions-bot',
+      email: 'support+actions@github.com'
+    },
+  }],
   ...(isPage ? [['@umijs/plugin-prerender', {
       postProcessHtml: ($, path) => {
         const title = DocumentTitle.rewind();
