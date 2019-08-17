@@ -9,12 +9,14 @@ action "Master" {
 }
 
 action "Deploy" {
-  uses = "docker://node:10"
+  uses = "JamesIves/github-pages-deploy-action@master"
   needs = ["Master"]
-  runs = [
-    "sh",
-    "-c",
-    "git init && git config --global user.name ycjcl868 && git config --global user.email 45808948@qq.com && git remote set-url origin https://${GITHUB_TOKEN}@github.com/umijs/umi-example-ssr.git && npm install && npm run gh-pages"
-  ],
-  secrets = ["GITHUB_TOKEN"]
+  env = {
+    BUILD_SCRIPT = "npm install && npm run prerender"
+    BRANCH = "gh-pages"
+    FOLDER = "public"
+    COMMIT_EMAIL = "45808948@qq.com"
+    COMMIT_NAME = "ycjcl868"
+  }
+  secrets = ["ACCESS_TOKEN"]
 }
