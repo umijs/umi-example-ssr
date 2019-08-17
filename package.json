@@ -3,7 +3,7 @@
     "build": "umi build",
     "start": "npm run build && node server.js",
     "debug": "cross-env RM_TMPDIR=none COMPRESS=none UMI_ENV=prod umi build && node server.js",
-    "prerender": "cross-env GITHUB_PAGE=true npm run build",
+    "prerender": "cross-env GITHUB_PAGE=true npm run build && cp ./nowignore ./public",
     "gh-pages": "cross-env GITHUB_PAGE=true npm run build && umi gh-pages"
   },
   "engines": {
