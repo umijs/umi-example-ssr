@@ -15,8 +15,6 @@ action "Deploy" {
     BUILD_SCRIPT = "npm install && npm run prerender"
     BRANCH = "gh-pages"
     FOLDER = "public"
-    COMMIT_EMAIL = "45808948@qq.com"
-    COMMIT_NAME = "ycjcl868"
   }
   secrets = ["ACCESS_TOKEN"]
 }
