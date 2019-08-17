@@ -1,11 +1,6 @@
 workflow "deployPage" {
   on = "push"
-  resolves = ["build & deploy"]
-}
-
-action "install" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  args = "install"
+  resolves = ["Deploy"]
 }
 
 action "Master" {
@@ -13,10 +8,13 @@ action "Master" {
   args = "branch master"
 }
 
-action "build & deploy" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  needs = ["Master", "install"]
-  runs = "[\"sh\", \"-c\", \"git init && git config user.name ycjcl868 && git config user.email 45808948@qq.com\"]"
-  args = "run gh-pages"
-  secrets = ["GITHUB_TOKEN"]
+action "Deploy" {
+  uses = "docker://node:10"
+  needs = ["Master"]
+  runs = [
+    "sh",
+    "-c",
+    "git init && git config user.name antd-actions-bot && git config --local user.email support+actions@github.com && git remote set-url origin https://${DEPLOY_TOKEN}@github.com/umijs/umi-example-ssr.git && npm install && npm run gh-pages"
+  ],
+  secrets = ["DEPLOY_TOKEN"]
 }
