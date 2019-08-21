@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
    const chunk = manifest[matchPath];
 
    if (chunk) {
-      const chunkMaps = injectChunkMaps(html, chunk, '/');
+      const chunkMaps = injectChunkMaps(html, chunk, '/public/');
       html = chunkMaps;
    }
    if (html) {
