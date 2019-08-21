@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
    const { htmlElement } = await serverRender.default({
       req,
    });
-   const html = ReactDOMServer.renderToString(htmlElement);
+   const html = '<!DOCTYPE html>' + ReactDOMServer.renderToString(htmlElement);
    if (html) {
      res.writeHead(200, {
       'Content-Type': 'text/html'

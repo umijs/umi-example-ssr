@@ -25,6 +25,7 @@ app.use(async (ctx, next) => {
     const { ReactDOMServer } = serverRender;
 
     const { htmlElement } = await serverRender.default(ctx);
+    ctx.res.write('<!DOCTYPE html>');
     const stream = ReactDOMServer.renderToNodeStream(htmlElement);
     global.window = {};
     global.self = global.window;
