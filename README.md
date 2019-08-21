@@ -25,7 +25,8 @@ $ yarn
 
 ## Screenshot
 
-![image](https://user-images.githubusercontent.com/13595509/59816117-710db780-934d-11e9-9521-6e01e63f252b.png)
+![image](https://user-images.githubusercontent.com/13595509/63396376-67f6a080-c3f9-11e9-96c6-2783817cf9e0.png)
+
 
 
 ## LICENSE
