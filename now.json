@@ -18,7 +18,8 @@
       "use": "@now/node",
       "config": {
         "includeFiles": [
-          "public/**/*"
+          "public/**/*",
+          "lambda/utils.js"
         ]
       }
     }
