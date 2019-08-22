@@ -3,6 +3,7 @@ const isPage = process.env.GITHUB_PAGE === 'true';
 
 const plugins = [
   ['umi-plugin-react', {
+    antd: true,
     dva: true,
     dynamicImport: {
       webpackChunkName: true,

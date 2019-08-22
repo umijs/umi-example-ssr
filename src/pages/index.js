@@ -1,25 +1,53 @@
 /**
- * title: Home
+ * title: Github Trending using umi ssr
  */
-import styles from './index.css';
+import { useEffect, useState } from 'react';
+import styles from './index.less';
+import { List, Avatar, Tag, Icon } from 'antd';
+import fetch from 'isomorphic-fetch';
 
 function Page(props) {
+  const [data, setData] = useState(props.data || []);
+  const colors = ['magenta', 'red', 'volcano', 'orange', 'gold', 'lime', 'green', 'cyan', 'blue', 'geekblue', 'purple'];
+  useEffect(() => {
+    if (!data.length) {
+      (async () => {
+        const res = await fetch('https://github-trending-api.now.sh').then(res => res.json());
+        setData(res);
+      })();
+    }
+  }, []);
   return (
     <div className={styles.normal}>
-      <h1>Page index</h1>
-      <h2>csr: {props.data && props.data.csr}</h2>
+      <h1>Github Trending</h1>
+
+      <List
+        itemLayout="horizontal"
+        dataSource={data}
+        renderItem={item => (
+          <List.Item>
+            <List.Item.Meta
+              avatar={<Avatar src={item.avatar} />}
+              title={<p className={styles.title}>
+                <a target="_blank" href={item.url}>{item.name}</a>
+                <Tag style={{ marginRight: 8 }} color={item.languageColor}>{item.language}</Tag>
+                <span className={styles.star}><Icon theme="filled" type="star" />{item.stars}</span>
+              </p>}
+              description={item.description}
+            />
+          </List.Item>
+        )}
+      />
     </div>
   );
 }
 
 Page.getInitialProps = async ({ store, route, isServer }) => {
   // console.log('Home getInitialProps', store, route, isServer);
-  return Promise.resolve({
-    data: {
-      ssr: 'http://127.0.0.1:7001',
-      csr: 'http://127.0.0.1:8000',
-    },
-  });
+  const res = await fetch('https://github-trending-api.now.sh').then(res => res.json());
+  return {
+    data: res
+  };
 };
 
 export default Page;
