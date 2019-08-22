@@ -3,17 +3,18 @@ import { Link } from 'umi';
 import styles from './index.css';
 
 function Page(props) {
+  const { search } = props.location;
   return (
     <div className={styles.normal}>
       <Menu selectedKeys={[props.location.pathname]} mode="horizontal">
         <Menu.Item key="/">
-          <Link to="/">Home</Link>
+          <Link to={`/${search}`}>Home</Link>
         </Menu.Item>
         <Menu.Item key="/users">
-          <Link to="/users">Users</Link>
+          <Link to={`/users${search}`}>Users</Link>
         </Menu.Item>
         <Menu.Item key="/count">
-          <Link to="/count">Count</Link>
+          <Link to={`/count${search}`}>Count</Link>
         </Menu.Item>
       </Menu>
       {props.children}

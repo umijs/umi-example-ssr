@@ -19,6 +19,7 @@
     "isomorphic-fetch": "^2.2.1",
     "koa": "^2.7.0",
     "koa-static-router": "^1.3.0",
+    "lodash": "^4.17.15",
     "react": "^16.8.6",
     "react-document-title": "^2.0.3",
     "react-dom": "^16.8.6",

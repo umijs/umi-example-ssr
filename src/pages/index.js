@@ -2,21 +2,24 @@
  * title: Github Trending using umi ssr
  */
 import { useEffect, useState } from 'react';
+import { isEqual } from 'lodash';
 import styles from './index.less';
+
 import { List, Avatar, Tag, Icon } from 'antd';
 import fetch from 'isomorphic-fetch';
 
 function Page(props) {
   const [data, setData] = useState(props.data || []);
   const colors = ['magenta', 'red', 'volcano', 'orange', 'gold', 'lime', 'green', 'cyan', 'blue', 'geekblue', 'purple'];
+  const { search } = props.location;
   useEffect(() => {
-    if (!data.length) {
+    if (!isEqual(data, props.data)) {
       (async () => {
-        const res = await fetch('https://github-trending-api.now.sh').then(res => res.json());
+        const res = await fetch(`https://github-trending-api.now.sh/repositories${search}`).then(res => res.json());
         setData(res);
       })();
     }
-  }, []);
+  }, [search, data]);
   return (
     <div className={styles.normal}>
       <h1>Github Trending</h1>
@@ -42,9 +45,9 @@ function Page(props) {
   );
 }
 
-Page.getInitialProps = async ({ store, route, isServer }) => {
+Page.getInitialProps = async ({ store, route, isServer, req }) => {
   // console.log('Home getInitialProps', store, route, isServer);
-  const res = await fetch('https://github-trending-api.now.sh').then(res => res.json());
+  const res = await fetch(`https://github-trending-api.now.sh/repositories${req.url || ''}`).then(res => res.json());
   return {
     data: res
   };
