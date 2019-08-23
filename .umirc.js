@@ -40,8 +40,13 @@ export default {
   ssr: true,
   hash: isPage,
   disableGlobalVariables: true,
-  outputPath: './public',
-  publicPath: isPage ? '/umi-example-ssr/' : '/public/',
+  outputPath: './dist',
+  publicPath: isPage ? '/umi-example-ssr/' : '/dist/',
   base: isPage ? '/umi-example-ssr/' : '/',
   plugins,
+  chainWebpack(config, { webpack }) {
+    if (process.env.NODE_ENV === 'development') {
+      config.output.publicPath('http://localhost:8000/');
+    }
+  },
 };

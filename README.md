@@ -13,6 +13,15 @@ ssr example for umi, including dva.
 $ yarn
 ```
 
+### 开发
+
+```sh
+$ yarn dev
+```
+
+### 生产
+
+
 然后运行 `yarn start`
 
 在浏览器打开，

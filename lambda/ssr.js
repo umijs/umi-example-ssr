@@ -1,7 +1,7 @@
 global.window = {};
 global.self = global.window;
-const serverRender = require('../public/umi.server');
-const manifest = require('../public/ssr-client-mainifest');
+const serverRender = require('../dist/umi.server');
+const manifest = require('../dist/ssr-client-mainifest');
 const { injectChunkMaps } = require('./utils');
 
 
@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
    const chunk = manifest[matchPath];
 
    if (chunk) {
-      const chunkMaps = injectChunkMaps(html, chunk, '/public/');
+      const chunkMaps = injectChunkMaps(html, chunk, '/dist/');
       html = chunkMaps;
    }
    if (html) {
