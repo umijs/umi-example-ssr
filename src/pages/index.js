@@ -6,7 +6,7 @@ import { isEqual } from 'lodash';
 import styles from './index.less';
 
 import { List, Avatar, Tag, Icon } from 'antd';
-import fetch from 'isomorphic-fetch';
+import fetch from 'umi-request';
 
 function Page(props) {
   const [data, setData] = useState(props.data || []);
@@ -15,7 +15,7 @@ function Page(props) {
   useEffect(() => {
     if (!isEqual(data, props.data)) {
       (async () => {
-        const res = await fetch(`https://github-trending-api.now.sh/repositories${search}`).then(res => res.json());
+        const res = await fetch(`https://github-trending-api.now.sh/repositories${search}`);
         setData(res);
       })();
     }
@@ -47,7 +47,7 @@ function Page(props) {
 
 Page.getInitialProps = async ({ store, route, isServer, req }) => {
   // console.log('Home getInitialProps', store, route, isServer);
-  const res = await fetch(`https://github-trending-api.now.sh/repositories${req.url || ''}`).then(res => res.json());
+  const res = await fetch(`https://github-trending-api.now.sh/repositories${req.url || ''}`);
   return {
     data: res
   };
