@@ -1,10 +1,15 @@
 require("regenerator-runtime/runtime");
+const server = require('umi-server');
 const Koa = require('koa');
 const detect = require('detect-port');
 const { join } = require('path');
 const serve = require('koa-static-router');
-const { renderToNodeStream } = require('react-dom/server');
 const isDev = process.env.NODE_ENV === 'development';
+
+const render = server({
+  root: join(__dirname, 'dist'),
+  publicPath: '/dist/',
+})
 
 const app = new Koa();
 app.use(serve({
@@ -16,25 +21,16 @@ app.use(async (ctx, next) => {
   if (ctx.request.path === '/' || ctx.request.path === '/users' || ctx.request.path === '/count') {
     ctx.type = 'text/html';
     ctx.status = 200;
-    // memo leak
-    global.window = {};
-    global.self = global.window;
     if (isDev) {
       delete require.cache[require.resolve('./dist/umi.server')];
     }
-    const serverRender = require('./dist/umi.server');
-    const { ReactDOMServer } = serverRender;
-
-    const { htmlElement } = await serverRender.default({
+    const { ssrHtml } = await render({
       req: {
         url: ctx.request.url,
       }
     });
-    ctx.res.write('<!DOCTYPE html>');
-    const stream = ReactDOMServer.renderToNodeStream(htmlElement);
-    global.window = {};
-    global.self = global.window;
-    ctx.body = stream;
+
+    ctx.body = ssrHtml;
   } else {
     await next();
   }

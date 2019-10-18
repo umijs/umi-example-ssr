@@ -6,11 +6,11 @@
       "src": "package.json",
       "use": "@now/static-build",
       "config": {
-        "distDif": "public"
+        "distDir": "dist"
       }
     },
     {
-      "src": "/public/*",
+      "src": "/dist/*",
       "use": "@now/static"
     },
     {
@@ -18,14 +18,13 @@
       "use": "@now/node",
       "config": {
         "includeFiles": [
-          "public/**/*",
-          "lambda/utils.js"
+          "public/**/*"
         ]
       }
     }
   ],
   "routes": [
-    { "src": "/public/(.*)", "dest": "public/$1" },
+    { "src": "/dist/(.*)", "dest": "dist/$1" },
     { "src": "/(.*)", "dest": "/lambda/ssr.js" }
   ]
 }
