@@ -38,7 +38,7 @@ const plugins = [
 
 export default {
   ssr: true,
-  hash: isPage,
+  hash: process.env.NODE_ENV === 'production',
   disableGlobalVariables: true,
   outputPath: './dist',
   publicPath: isPage ? '/umi-example-ssr/' : '/dist/',
