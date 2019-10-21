@@ -1,41 +1,41 @@
 {
   "/": {
     "js": [
-      "umi.50ca020e.js",
-      "vendors.63208a72.async.js",
-      "layout__index.40896357.async.js",
-      "p__index.fbb20e39.async.js"
+      "umi.2f428de3.js",
+      "vendors.1ef92c84.async.js",
+      "layout__index.5626e247.async.js",
+      "p__index.811d4c7c.async.js"
     ],
     "css": [
-      "vendors.a378f9bc.chunk.css",
+      "vendors.6b87ae4f.chunk.css",
       "layout__index.be9cd952.chunk.css",
-      "p__index.6b02f689.chunk.css"
+      "p__index.8057c4bf.chunk.css"
     ]
   },
   "/count": {
     "js": [
-      "umi.50ca020e.js",
-      "vendors.63208a72.async.js",
-      "layout__index.40896357.async.js",
-      "p__count.6ab41818.async.js"
+      "umi.2f428de3.js",
+      "vendors.1ef92c84.async.js",
+      "layout__index.5626e247.async.js",
+      "p__count.58bdeb86.async.js"
     ],
     "css": [
-      "vendors.a378f9bc.chunk.css",
+      "vendors.6b87ae4f.chunk.css",
       "layout__index.be9cd952.chunk.css",
-      "p__count.64311345.chunk.css"
+      "p__count.4a1ae07b.chunk.css"
     ]
   },
   "/users": {
     "js": [
-      "umi.50ca020e.js",
-      "vendors.63208a72.async.js",
-      "layout__index.40896357.async.js",
-      "p__users.e033f555.async.js"
+      "umi.2f428de3.js",
+      "vendors.1ef92c84.async.js",
+      "layout__index.5626e247.async.js",
+      "p__users.4219d6a8.async.js"
     ],
     "css": [
-      "vendors.a378f9bc.chunk.css",
+      "vendors.6b87ae4f.chunk.css",
       "layout__index.be9cd952.chunk.css",
-      "p__users.f32218ef.chunk.css"
+      "p__users.d7a57ef5.chunk.css"
     ]
   }
 }
