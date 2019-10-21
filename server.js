@@ -8,8 +8,6 @@ const isDev = process.env.NODE_ENV === 'development';
 
 const render = server({
   root: join(__dirname, 'dist'),
-  host: isDev ? 'http://localhost:8000' : '',
-  publicPath: isDev ? '/' : '/dist/',
 })
 
 const app = new Koa();
@@ -33,8 +31,6 @@ app.use(async (ctx, next) => {
 
     ctx.body = ssrHtml;
   } else {
-    ctx.status = 404;
-    ctx.body = 'not found';
     await next();
   }
 });

@@ -5,7 +5,6 @@ const server = require('umi-server');
 
 const render = server({
    root: join(__dirname, '..', 'dist'),
-   publicPath: '/dist/',
 })
 
 
