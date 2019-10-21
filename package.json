@@ -2,7 +2,7 @@
   "scripts": {
     "build": "umi build",
     "start": "npm run build && node server.js",
-    "dev": "NODE_ENV=development concurrently \"umi dev\" \"nodemon server.js\"",
+    "dev": "cross-env NODE_ENV=development concurrently \"umi dev\" \"nodemon server.js\"",
     "debug": "cross-env RM_TMPDIR=none COMPRESS=none UMI_ENV=prod umi build && node server.js",
     "prerender": "cross-env GITHUB_PAGE=true npm run build",
     "gh-pages": "cross-env GITHUB_PAGE=true npm run build && umi gh-pages"
