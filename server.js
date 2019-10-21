@@ -8,7 +8,7 @@ const isDev = process.env.NODE_ENV === 'development';
 
 const render = server({
   root: join(__dirname, 'dist'),
-  host: 'http://localhost:8000',
+  host: isDev ? 'http://localhost:8000' : '',
   publicPath: isDev ? '/' : '/dist/',
 })
 
