@@ -20,7 +20,7 @@
     "react-document-title": "^2.0.3",
     "react-dom": "^16.8.6",
     "regenerator-runtime": "^0.13.2",
-    "umi-request": "1.2.4-beta.1",
+    "umi-request": "^1.2.4",
     "umi-server": "^1.0.0"
   },
   "devDependencies": {
